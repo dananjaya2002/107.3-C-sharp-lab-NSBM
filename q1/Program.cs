@@ -10,7 +10,15 @@ namespace q1
     {
         static void Main()
         {
-            Console.WriteLine("hello");
+            Console.WriteLine("Enter the number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i < 13; i++)
+            {
+                int res = num * i;
+                Console.WriteLine(num + "x" + i + "=" + res);
+            }
+            Console.ReadLine();
             
         }
 
