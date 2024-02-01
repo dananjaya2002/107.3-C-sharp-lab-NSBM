@@ -29,9 +29,7 @@ namespace q1
                 sumAll(num);
 
             }
-            else { Console.WriteLine("ERROR"); }
             Console.ReadLine();
-
 
         }
 
