@@ -6,30 +6,25 @@ using System.Threading.Tasks;
 
 namespace q1
 {
-    //create a student class    
-    public class Student
+    //create a BankAccount class    
+    public class BankAccout
     {
-        //variable to store name
-        public string name;
-        //array to store 3 marks
-        public int[] marks;
+        private int bal = 1000;
 
-        public void StoreDetails(string StudentName, int[]stuMarks)
+        
+        public void Check_balance()
         {
-            name = StudentName;
-            marks = stuMarks;
+            Console.WriteLine($"Your account balance is: {bal}");
         }
 
-        public void DisplayDetails()
+        public void Deposit( int change)
         {
-            Console.WriteLine($"Name: {name}");
-            
-            for(int i = 0; i < marks.Length; i++)
-            {
-                Console.WriteLine($"Marks: {marks[i]}");
-            }
-            Console.WriteLine("\n");
+            bal = bal + change;
+            Console.WriteLine($"{change} amount is deposited to your account");
+            Console.WriteLine($"Your new balance is {bal}");
         }
+
+
     }
 
     internal class Program
@@ -39,16 +34,30 @@ namespace q1
         static void Main()
         {
             //create an object
-            Student student1 = new Student();
-            Student student2 = new Student();
+            BankAccout account1 = new BankAccout();
 
-            //calling the StoreDetails method and store name and marks
-            student1.StoreDetails("adam", new int[] { 88, 45, 89 });
-            student2.StoreDetails("ginger", new int[] { 85, 48, 89 });
+            Console.WriteLine("type '1' for check Balance or type '2' for deposit amount");
+            int choice = int.Parse( Console.ReadLine() );
 
-            //calling the DisplayDetails to show the added marks
-            student1.DisplayDetails();
-            student2.DisplayDetails();
+            if ( choice == 1)
+            {
+                //calling the checkBalance method for checking the balance
+                account1.Check_balance();
+            }
+            else if ( choice == 2)
+            {
+                //calling the deposit method for Deposit the amount
+                Console.WriteLine("Enter the amount you wish to deposit");
+                int amount = int.Parse( Console.ReadLine() );
+
+                account1.Deposit(amount);
+            }
+            else
+            {
+                Console.WriteLine("Invalid option");
+            }
+
+            
             Console.ReadLine();
         }
 
