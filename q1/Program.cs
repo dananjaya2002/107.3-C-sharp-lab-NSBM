@@ -6,54 +6,50 @@ using System.Threading.Tasks;
 
 namespace q1
 {
+    //create a student class    
+    public class Student
+    {
+        //variable to store name
+        public string name;
+        //array to store 3 marks
+        public int[] marks;
+
+        public void StoreDetails(string StudentName, int[]stuMarks)
+        {
+            name = StudentName;
+            marks = stuMarks;
+        }
+
+        public void DisplayDetails()
+        {
+            Console.WriteLine($"Name: {name}");
+            
+            for(int i = 0; i < marks.Length; i++)
+            {
+                Console.WriteLine($"Marks: {marks[i]}");
+            }
+            Console.WriteLine("\n");
+        }
+    }
+
     internal class Program
     {
 
-        static void Bal()
-        {
-            Console.WriteLine("your balance is xxxxx.");
-        }
-
-        static void Dep() 
-        { 
-            Console.WriteLine("Enter the money through counter thank you."); 
-        }
-
-        static void Widraw() 
-        { 
-            Console.WriteLine("Enter the Amount you want to withdraw");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.WriteLine(num1 + " amout is ready to withdarw");
-            
-        }
-
+        
         static void Main()
         {
-            Console.WriteLine("How do you want to proceed?");
-            Console.WriteLine("type '1' for check the balance");
-            Console.WriteLine("type '2' for deposit money");
-            Console.WriteLine("type '3' for withdraw money");
-            int num = int.Parse(Console.ReadLine());
+            //create an object
+            Student student1 = new Student();
+            Student student2 = new Student();
 
-            if(num == 1)
-            {
-                Bal();
-            }
-            else if(num == 2)
-            {
-                Dep();
-            }
-            else if (num == 3)
-            {
-                Widraw();
-            }
-            else
-            {
-                Console.WriteLine("Invalid command");
-            }
+            //calling the StoreDetails method and store name and marks
+            student1.StoreDetails("adam", new int[] { 88, 45, 89 });
+            student2.StoreDetails("ginger", new int[] { 85, 48, 89 });
 
+            //calling the DisplayDetails to show the added marks
+            student1.DisplayDetails();
+            student2.DisplayDetails();
             Console.ReadLine();
-
         }
 
         
