@@ -6,33 +6,36 @@ using System.Threading.Tasks;
 
 namespace q1
 {
-    public class Book
+    public class BankAccount
     {
-        public string Title {  get; set; }
-        public string Authour {  get; set; }
+        public int AccoutNumber { get; set; }
+        public int Balance { get; set;}
 
-        public Book(string title, string authour)
+        public BankAccount(int accoutNumber, int balance)
         {
-            Title = title;
-            Authour = authour;
+            AccoutNumber = accoutNumber;
+            Balance = balance;
         }
 
-        
+        public void Deposit(int amount)
+        {
+            Balance = Balance + amount;
+        }
     }
     internal class Program
     {
        public static void Main(string[] args)
         {
-            Book book1 = new Book("", "");
+            BankAccount account1 = new BankAccount(0,0);
 
-            Console.WriteLine("Enter the Book Title:");
-            book1.Title = Console.ReadLine();
+            Console.WriteLine("Enter you Account number:");
+            account1.AccoutNumber = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the Authour of this book:");
-            book1.Authour = Console.ReadLine();
+            Console.WriteLine("Enter the Amount you wish to deposit:");
+            int amount = int.Parse(Console.ReadLine());
+            account1.Deposit(amount);
 
-            Console.WriteLine("title of the book is " + book1.Title);
-            Console.WriteLine("authour of the book is " + book1.Authour);
+            Console.WriteLine($"In {account1.AccoutNumber} account's updated balance is {account1.Balance}.");
             Console.ReadLine();
         }
 
