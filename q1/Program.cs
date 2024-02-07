@@ -6,28 +6,37 @@ using System.Threading.Tasks;
 
 namespace q1
 {
+    public class Book
+    {
+        public string Title {  get; set; }
+        public string Authour {  get; set; }
+
+        public Book(string title, string authour)
+        {
+            Title = title;
+            Authour = authour;
+        }
+
+        
+    }
     internal class Program
     {
-        static void Area(int x, int y)
+       public static void Main(string[] args)
         {
-            int area = x * y;
+            Book book1 = new Book("", "");
 
-            Console.WriteLine("Area of the Rectangle is: " + area);
+            Console.WriteLine("Enter the Book Title:");
+            book1.Title = Console.ReadLine();
+
+            Console.WriteLine("Enter the Authour of this book:");
+            book1.Authour = Console.ReadLine();
+
+            Console.WriteLine("title of the book is " + book1.Title);
+            Console.WriteLine("authour of the book is " + book1.Authour);
             Console.ReadLine();
-
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Enter the height: ");
-            string input1 = Console.ReadLine();
-            int num1 = int.Parse(input1);
-            Console.WriteLine("Enter the width: ");
-            int num2 = int.Parse(Console.ReadLine());
+        
 
-            Area(num1, num2);
-
-
-        }
     }
 }
