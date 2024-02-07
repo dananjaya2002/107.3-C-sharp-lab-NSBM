@@ -8,14 +8,9 @@ namespace q1
 {
     public class Book
     {
-        public string Title {  get; set; }
-        public string Authour {  get; set; }
-
-        public Book(string title, string authour)
-        {
-            Title = title;
-            Authour = authour;
-        }
+        public string Title;
+        public string Authour;
+        
 
         
     }
@@ -23,7 +18,7 @@ namespace q1
     {
        public static void Main(string[] args)
         {
-            Book book1 = new Book("", "");
+            Book book1 = new Book();
 
             Console.WriteLine("Enter the Book Title:");
             book1.Title = Console.ReadLine();
