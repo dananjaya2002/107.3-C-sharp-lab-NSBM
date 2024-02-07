@@ -8,14 +8,10 @@ namespace q1
 {
     public class BankAccount
     {
-        public int AccoutNumber { get; set; }
-        public int Balance { get; set;}
+        public int AccoutNumber;
+        public int Balance;
 
-        public BankAccount(int accoutNumber, int balance)
-        {
-            AccoutNumber = accoutNumber;
-            Balance = balance;
-        }
+        
 
         public void Deposit(int amount)
         {
@@ -26,7 +22,7 @@ namespace q1
     {
        public static void Main(string[] args)
         {
-            BankAccount account1 = new BankAccount(0,0);
+            BankAccount account1 = new BankAccount();
 
             Console.WriteLine("Enter you Account number:");
             account1.AccoutNumber = int.Parse(Console.ReadLine());
