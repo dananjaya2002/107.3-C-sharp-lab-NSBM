@@ -27,6 +27,7 @@ namespace q1
 
             Area(num1, num2);
 
+
         }
     }
 }
