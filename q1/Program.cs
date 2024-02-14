@@ -12,7 +12,14 @@ namespace q1
         private string instructorName;
         private double grade {  get; }
 
-        public static void SetInstrucorName (string instructorName)
+        public Course(string CourseName, double Grade)
+        {
+            courseName = CourseName;
+            
+            grade = Grade;
+        }
+
+        public void SetInstrucorName ()
         {
             Console.WriteLine("Enter the Instructor's Name:");
             string name = Console.ReadLine ();
@@ -62,7 +69,9 @@ namespace q1
         public void PrintCourseInfo()
         {
             string gradeLetter = CalculateLetterGrade(grade);
-            Console.WriteLine($"Course Name : {courseName} and Instrctor's Name : {instructorName} and Grade : {grade}");
+            Console.WriteLine($"Course Name: {courseName}");
+            Console.WriteLine($"Instrctor's Name: {instructorName}");
+            Console.WriteLine($"Grade: {gradeLetter}");
         }
 
         
@@ -71,7 +80,11 @@ namespace q1
     {
        public static void Main(string[] args)
         {
-            
+            Course course1 = new Course("course1", 64.6);
+            course1.SetInstrucorName();
+            course1.PrintCourseInfo();
+
+
 
             Console.ReadLine();
         }
