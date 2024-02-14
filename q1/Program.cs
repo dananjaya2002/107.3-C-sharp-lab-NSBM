@@ -6,37 +6,72 @@ using System.Threading.Tasks;
 
 namespace q1
 {
-    public class LibraryBook
+    public class Course
     {
-        public string Title;
-        public string Authour;
-        public string Availablity = "available";
+        private string courseName {  get; }
+        private string instructorName;
+        private double grade {  get; }
 
-        public LibraryBook(string title, string authour)
+        public static void SetInstrucorName (string instructorName)
         {
-            Title = title;
-            Authour = authour;
+            Console.WriteLine("Enter the Instructor's Name:");
+            string name = Console.ReadLine ();
+            if (name == null)
+            {
+                Console.WriteLine("this is a null value");
+            }
+            else
+            {
+                instructorName = name;
+            }
+
         }
 
-        public void BorrorwBook()
+        private static string CalculateLetterGrade(double grade)
         {
-            Availablity = "Not available";
+            string letter;
+            
+            if (grade >= 0 && grade < 35.0)
+            {
+                letter = "F";
+            }
+            else if (grade >= 35.0 && grade < 55.0)
+            {
+                letter = "S";
+            }           
+            else if (grade >= 55.0 && grade < 65.0)
+            {
+                letter = "C";
+            }
+            else if (grade >= 65.0 && grade < 75.0)
+            {
+                letter = "B";
+            }
+            else if (grade >= 75.0 && grade <= 100.0)
+            {
+                letter = "A";
+            }
+            else
+            {
+                letter = "Invalid mark";
+            }
+
+            return letter;
         }
+
+        public void PrintCourseInfo()
+        {
+            string gradeLetter = CalculateLetterGrade(grade);
+            Console.WriteLine($"Course Name : {courseName} and Instrctor's Name : {instructorName} and Grade : {grade}");
+        }
+
+        
     }
     internal class Program
     {
        public static void Main(string[] args)
         {
-            LibraryBook book1 = new LibraryBook("title1", "authour1");
-            LibraryBook book2 = new LibraryBook("title2", "authour2");
-            LibraryBook book3 = new LibraryBook("title3", "authour3");
-
-            book2.BorrorwBook();
-            book3.BorrorwBook();
-
-            Console.WriteLine($"{book1.Title} book written by {book1.Authour} is {book1.Availablity}");
-            Console.WriteLine($"{book2.Title} book written by {book2.Authour} is {book2.Availablity}");
-            Console.WriteLine($"{book3.Title} book written by {book3.Authour} is {book3.Availablity}");
+            
 
             Console.ReadLine();
         }
