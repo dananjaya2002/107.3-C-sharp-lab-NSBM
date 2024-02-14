@@ -8,9 +8,9 @@ namespace q1
 {
     public class Course
     {
-        private string courseName {  get; }
+        private string courseName;
         private string instructorName;
-        private double grade {  get; }
+        private double grade;
 
         public Course(string CourseName, double Grade)
         {
